@@ -1,0 +1,116 @@
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px) translateY(500px);
+    opacity: 0;
+  }
+}
+
+@keyframes wave {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-25px) translateY(15px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes shipMovement {
+  0% {
+    transform: translateX(-100%) translateY(0);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateX(50%) translateY(-10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100%) translateY(0);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #0a1f3b 0%, #1a4a8c 100%);
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.shootingStar {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: shootingStar 2s linear infinite;
+}
+
+.ocean {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, #0a2d5c 0%, #051a38 100%);
+}
+
+.waves {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: wave 8s ease-in-out infinite;
+}
+
+.fog {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 20%;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.ship {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  bottom: 25%;
+  animation: shipMovement 20s ease-in-out infinite;
+  filter: brightness(0.7);
+} 
