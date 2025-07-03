@@ -15,30 +15,30 @@
 }
 
 @keyframes float {
-  0% { 
-    transform: translate(0, 0) rotate(0deg);
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
   }
   25% {
-    transform: translate(0, 15px) rotate(2deg);
-  }
-  50% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translateY(15px) rotate(1deg);
   }
   75% {
-    transform: translate(0, -15px) rotate(-2deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translateY(-15px) rotate(-1deg);
   }
 }
 
 @keyframes shipMovement {
-  0% {
+  0%, 100% {
+    transform: translateX(-150%) translateY(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  5% {
     transform: translateX(-120%) translateY(0);
     opacity: 0;
+    visibility: visible;
   }
-  10% {
-    transform: translateX(-100%) translateY(0);
+  20% {
+    transform: translateX(-80%) translateY(0);
     opacity: 1;
   }
   45% {
@@ -49,13 +49,14 @@
     transform: translateX(20%) translateY(0);
     opacity: 1;
   }
-  90% {
-    transform: translateX(100%) translateY(0);
+  80% {
+    transform: translateX(80%) translateY(0);
     opacity: 1;
   }
-  100% {
+  95% {
     transform: translateX(120%) translateY(0);
     opacity: 0;
+    visibility: visible;
   }
 }
 
@@ -192,22 +193,35 @@
 
 .ship {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  bottom: 25%;
+  width: 180px;
+  height: 180px;
+  bottom: 28%;
   left: 50%;
   transform: translateX(-50%);
-  animation: shipMovement 20s ease-in-out infinite, float 4s ease-in-out infinite;
+  animation: 
+    shipMovement 45s cubic-bezier(0.45, 0, 0.55, 1) infinite,
+    float 6s ease-in-out infinite;
   z-index: 2;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .shipImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0.95) contrast(1.05);
-  mix-blend-mode: multiply;
+  filter: brightness(0.92) contrast(1.08) drop-shadow(0 5px 15px rgba(0,0,0,0.2));
   pointer-events: none;
+  mix-blend-mode: normal;
+  background: transparent;
+  position: relative;
+  isolation: isolate;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .flag {

@@ -69,13 +69,17 @@ export default function Home() {
           src="/images/pirate-ship.png"
           alt="Pirate Ship"
           className={styles.shipImage}
-          width={400}
-          height={400}
+          width={360}
+          height={360}
           priority
           quality={100}
+          unoptimized
           style={{
             objectFit: 'contain',
-            backgroundColor: 'transparent'
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            MozBackfaceVisibility: 'hidden'
           }}
         />
       </div>
