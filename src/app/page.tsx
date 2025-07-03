@@ -78,6 +78,7 @@ export default function Home() {
             objectFit: 'contain',
             background: 'transparent'
           }}
+          loading="eager"
         />
       </div>
     </main>
