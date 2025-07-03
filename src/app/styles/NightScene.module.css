@@ -1,6 +1,6 @@
 @keyframes twinkle {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.2; }
 }
 
 @keyframes shootingStar {
@@ -26,12 +26,12 @@
     opacity: 0;
   }
   25% {
-    transform: translateX(-50%) translateY(10px);
-    opacity: 0.6;
+    transform: translateX(-50%) translateY(15px);
+    opacity: 0.8;
   }
   75% {
-    transform: translateX(50%) translateY(-10px);
-    opacity: 0.6;
+    transform: translateX(50%) translateY(-15px);
+    opacity: 0.8;
   }
   100% {
     transform: translateX(100%) translateY(0);
@@ -39,18 +39,25 @@
   }
 }
 
+@keyframes flagWave {
+  0% { transform: skewX(0deg); }
+  25% { transform: skewX(-5deg); }
+  75% { transform: skewX(5deg); }
+  100% { transform: skewX(0deg); }
+}
+
 .container {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #0a1f3b 0%, #1a4a8c 100%);
+  background: linear-gradient(to bottom, #010817 0%, #051630 100%);
   overflow: hidden;
 }
 
 .stars {
   position: absolute;
   width: 100%;
-  height: 50%;
+  height: 60%;
   top: 0;
 }
 
@@ -58,14 +65,14 @@
   position: absolute;
   background: white;
   border-radius: 50%;
-  animation: twinkle 2s infinite;
+  animation: twinkle 3s infinite;
 }
 
 .shootingStar {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: white;
+  background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
   border-radius: 50%;
   animation: shootingStar 2s linear infinite;
 }
@@ -74,21 +81,21 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50%;
-  background: linear-gradient(to bottom, #0a2d5c 0%, #051a38 100%);
+  height: 45%;
+  background: linear-gradient(to bottom, #051630 0%, #0a2d5c 50%, #f0c087 100%);
 }
 
 .waves {
   position: absolute;
   width: 100%;
-  height: 100px;
+  height: 120px;
   bottom: 0;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.1) 10px,
-    transparent 10px,
-    transparent 20px
+    rgba(240, 192, 135, 0.3),
+    rgba(240, 192, 135, 0.3) 10px,
+    rgba(210, 170, 120, 0.3) 10px,
+    rgba(210, 170, 120, 0.3) 20px
   );
   animation: wave 8s ease-in-out infinite;
 }
@@ -100,7 +107,7 @@
   bottom: 20%;
   background: linear-gradient(to bottom,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
@@ -108,9 +115,19 @@
 
 .ship {
   position: absolute;
-  width: 200px;
-  height: 150px;
+  width: 150px;
+  height: 120px;
   bottom: 25%;
   animation: shipMovement 20s ease-in-out infinite;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
+}
+
+.flag {
+  position: absolute;
+  top: -30px;
+  right: 40%;
+  width: 30px;
+  height: 20px;
+  animation: flagWave 3s ease-in-out infinite;
+  transform-origin: left center;
 } 
