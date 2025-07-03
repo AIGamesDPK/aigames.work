@@ -76,10 +76,7 @@ export default function Home() {
           unoptimized
           style={{
             objectFit: 'contain',
-            transform: 'translateZ(0)',
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            MozBackfaceVisibility: 'hidden'
+            background: 'transparent'
           }}
         />
       </div>
