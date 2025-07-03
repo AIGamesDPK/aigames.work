@@ -69,10 +69,10 @@ export default function Home() {
           src="/images/pirate-ship.png"
           alt="Pirate Ship"
           className={styles.shipImage}
-          width={512}
-          height={512}
+          width={400}
+          height={400}
           priority
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'cover' }}
         />
       </div>
     </main>
