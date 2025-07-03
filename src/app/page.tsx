@@ -64,24 +64,23 @@ export default function Home() {
 
       <div className={styles.fog} />
       
-      <div className={styles.ship}>
+      <div className={styles.ship} style={{ background: 'none' }}>
         <Image
-          src="/images/pirate-ship.png"
+          src="/images/pirate-ship.svg"
           alt="Pirate Ship"
           className={styles.shipImage}
           width={500}
           height={500}
           priority
           quality={100}
-          unoptimized
           style={{
             objectFit: 'contain',
-            background: 'transparent',
-            maxWidth: '160px',
-            maxHeight: '160px',
-            willChange: 'transform'
+            background: 'none',
+            maxWidth: '150px',
+            maxHeight: '150px',
+            willChange: 'transform',
+            transform: 'translate3d(0,0,0)'
           }}
-          loading="eager"
         />
       </div>
     </main>

@@ -12,16 +12,18 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.(png)$/i,
-      use: [
-        {
-          loader: 'sharp-loader',
-          options: {
-            preserveAlpha: true,
-            quality: 100,
-          },
+      test: /\.png$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          publicPath: '/_next/static/images/',
+          outputPath: 'static/images/',
         },
-      ],
+      }]);
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
     });
     return config;
   },
