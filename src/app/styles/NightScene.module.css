@@ -126,6 +126,7 @@
     rgba(240, 192, 135, 0.4) 100%
   );
   overflow: hidden;
+  z-index: 1;
 }
 
 .waves {
@@ -141,6 +142,7 @@
   );
   animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
   transform-origin: center bottom;
+  z-index: 1;
 }
 
 .wave {
@@ -185,6 +187,7 @@
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
+  z-index: 3;
 }
 
 .ship {
@@ -195,16 +198,16 @@
   left: 50%;
   transform: translateX(-50%);
   animation: shipMovement 20s ease-in-out infinite, float 4s ease-in-out infinite;
-  display: block;
-  overflow: hidden;
+  z-index: 2;
 }
 
 .shipImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   filter: brightness(0.95) contrast(1.05);
-  display: block;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .flag {

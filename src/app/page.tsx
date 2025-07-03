@@ -72,7 +72,11 @@ export default function Home() {
           width={400}
           height={400}
           priority
-          style={{ objectFit: 'cover' }}
+          quality={100}
+          style={{
+            objectFit: 'contain',
+            backgroundColor: 'transparent'
+          }}
         />
       </div>
     </main>
