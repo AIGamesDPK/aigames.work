@@ -189,19 +189,25 @@
 
 .ship {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
   animation: shipMovement 20s ease-in-out infinite, float 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .shipImage {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   filter: brightness(0.9) contrast(1.1);
+  display: block;
+  max-width: 100%;
+  transform: scale(0.8);
 }
 
 .flag {
