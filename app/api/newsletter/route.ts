@@ -1,11 +1,20 @@
-import { NewsletterAPI } from 'pliny/newsletter'
-import siteMetadata from '@/data/siteMetadata'
+// Newsletter API temporarily disabled for Cloudflare Pages compatibility
+export const runtime = 'edge'
 
-export const dynamic = 'force-static'
+export async function GET() {
+  return new Response(JSON.stringify({ message: 'Newsletter API disabled' }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}
 
-const handler = NewsletterAPI({
-  // @ts-ignore
-  provider: siteMetadata.newsletter.provider,
-})
-
-export { handler as GET, handler as POST }
+export async function POST() {
+  return new Response(JSON.stringify({ message: 'Newsletter API disabled' }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}
