@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'AIGames.Work - Under Construction',
-  description: 'Coming soon...',
+  title: 'AIGames.Work',
+  description: 'Welcome to AIGames.Work! Discover our latest updates and projects.',
 }
 
 export default function RootLayout({

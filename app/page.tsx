@@ -1,47 +1,21 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    // Fade in on mount
-    setIsVisible(true)
-    
-    // Fade out and in every 4 seconds
-    const interval = setInterval(() => {
-      setIsVisible(false)
-      setTimeout(() => setIsVisible(true), 500)
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
-      <div 
-        className={`
-          text-center bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl 
-          max-w-md mx-4 transform transition-all duration-1000 ease-in-out
-          ${isVisible 
-            ? 'opacity-100 scale-100 translate-y-0' 
-            : 'opacity-0 scale-95 translate-y-4'
-          }
-        `}
-      >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4 animate-pulse">
-          🚧 Under Construction 🚧
+      <div className="text-center bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl max-w-2xl mx-4">
+        <h1 className="text-5xl font-bold text-gray-800 mb-6 animate-float">
+          AIGames.Work
         </h1>
-        <p className="text-lg text-gray-600 mb-8 animate-bounce">
-          We're working hard to bring you something amazing!
+        <p className="text-xl text-gray-600 mb-8">
+          Welcome to our AI-powered gaming platform! We're building something amazing.
         </p>
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-8 overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 h-2 rounded-full animate-pulse"></div>
+        <div className="space-y-4">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 animate-glow">
+            Coming Soon
+          </div>
+          <p className="text-sm text-gray-500">
+            Stay tuned for updates and announcements
+          </p>
         </div>
-        <p className="text-xl font-semibold text-blue-600 animate-pulse">
-          Coming Soon...
-        </p>
       </div>
     </main>
   )
